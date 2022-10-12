@@ -1,2 +1,3 @@
 # aplikacje_www
-projekt i zajęcia
+zadania z zajęć w branchu zajecia
+projekt w branchu projekt
