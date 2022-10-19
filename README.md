@@ -1,2 +1,2 @@
-# aplikacje_www
-zajęcia
+
+# aplikacje_www zajecia
