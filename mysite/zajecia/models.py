@@ -9,20 +9,22 @@ class Team(models.Model):
    def __str__(self):
        return str(self.nazwa + " (" + self.kraj + ")")
 
+class Miesiace(models.IntegerChoices):
+    Styczen = 1
+    Luty = 2
+    Marzec = 3
+    Kwiecien = 4
+    Maj = 5
+    Czerwiec = 6
+    Lipiec = 7
+    Sierpien = 8
+    Wrzesien = 9
+    Pazdziernik = 10
+    Listopad = 11
+    Grudzien = 12
+
 class Person(models.Model):
-    class Miesiace(models.IntegerChoices):
-        Styczen = 1
-        Luty = 2
-        Marzec = 3
-        Kwiecien = 4
-        Maj = 5
-        Czerwiec = 6
-        Lipiec = 7
-        Sierpien = 8
-        Wrzesien = 9
-        Pazdziernik = 10
-        Listopad = 11
-        Grudzien = 12
+
 
     imie = models.CharField(max_length=200)
     nazwisko = models.CharField(max_length=200)
