@@ -30,7 +30,7 @@ class Person(models.Model):
     nazwisko = models.CharField(max_length=200)
     miesiac_urodzenia = models.IntegerField(choices=Miesiace.choices, default=0)
     data_dodania = models.DateField(auto_now_add=True)
-    druzyna = models.ForeignKey(Team, default=None, on_delete=models.SET_DEFAULT, blank=True)
+    druzyna = models.ForeignKey(Team, default=None, on_delete=models.SET_DEFAULT, null=True, blank=True)
 
     def __str__(self):
         return str(self.imie+" "+self.nazwisko)

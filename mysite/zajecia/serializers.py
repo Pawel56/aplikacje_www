@@ -4,8 +4,9 @@ from .models import Person, Team, Miesiace
 class PersonSerializer(serializers.Serializer):
     imie = serializers.CharField(required=True)
     nazwisko = serializers.CharField(required=True)
-    miesiac_urodzenia = serializers.ChoiceField(choices=Miesiace, default=Miesiace[0][0])
-    druzyna = serializers.PrimaryKeyRelatedField(queryset=Team.objects.all())
+    miesiac_urodzenia = serializers.ChoiceField(choices=Miesiace)
+    data_dodania = serializers.DateField()
+    druzyna = serializers.PrimaryKeyRelatedField(queryset=Team.objects.all(), allow_null=True)
 
     def create(self, validated_data):
         return Person.objects.create(**validated_data)
