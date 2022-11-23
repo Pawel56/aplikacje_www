@@ -24,6 +24,8 @@ class PersonSerializer(serializers.Serializer):
     def validate(self, data):
         if data['data_dodania'] > datetime.date.today():
             raise serializers.ValidationError("data dodania jest z przyszłości")
+        if not data['imie'].isalpha():
+            raise serializers.ValidationError("imie zawiera nie tylko litery")
         return data
 
 class PersonModelSerializer(serializers.ModelSerializer):
