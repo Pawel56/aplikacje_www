@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Person, Team, Miesiace
+import datetime
 
 class PersonSerializer(serializers.Serializer):
     imie = serializers.CharField(required=True)
@@ -17,6 +18,13 @@ class PersonSerializer(serializers.Serializer):
         instance.miesiac_urodzenia = validated_data.get('miesiac_urodzenia', instance.miesiac_urodzenia)
         instance.save()
         return instance
+
+
+
+    def validate(self, data):
+        if data['data_dodania'] > datetime.date.today():
+            raise serializers.ValidationError("data dodania jest z przyszłości")
+        return data
 
 class PersonModelSerializer(serializers.ModelSerializer):
     class Meta:
