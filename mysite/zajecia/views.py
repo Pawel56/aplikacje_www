@@ -54,7 +54,10 @@ def person_search(request, nazwa):
         return Response(serializer.data)
 
 @api_view(['GET', 'PUT', 'DELETE'])
+@authentication_classes([SessionAuthentication, BasicAuthentication])
+@permission_classes([IsAuthenticated])
 def team_detail(request, pk):
+
     try:
         team = Team.objects.get(pk=pk)
     except Team.DoesNotExist:
